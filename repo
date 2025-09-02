@@ -1,9 +1,15 @@
-//Step 3: Test the Integration
-Now, you can test the entire workflow.
+(function process(/*RESTAPIRequest*/ request, /*RESTAPIResponse*/ response) {
+    var body = request.body.data;
+    var pr = JSON.parse(body);
 
-In your GitHub repository, create a new branch.
+    if (pr.action === 'opened' && pr.pull_request) {
+        var change = new GlideRecord('change_request');
+        change.initialize();
+        change.short_description = 'GitHub PR: ' + pr.pull_request.title;
+        change.description = 'Pull Request by ' + pr.pull_request.user.login + '\n\n' + pr.pull_request.body;
+        change.type = 'Normal';
+        change.insert();
+    }
 
-Make a small code change and push the branch.
-
-Create a new pull request from this branch to your main branch.//
-
+    response.setStatus(200);
+})(request, response);
