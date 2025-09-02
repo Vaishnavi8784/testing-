@@ -6,4 +6,12 @@ In your GitHub repository, create a new branch.
 Make a small code change and push the branch.
 
 Create a new pull request from this branch to your main branch.//
-
+{
+  "action": "opened",
+  "pull_request": {
+    "title": "Fix bug in incident workflow",
+    "body": "This PR fixes a bug...",
+    "user": { "login": "john-doe" },
+    "html_url": "https://github.com/org/repo/pull/123"
+  },
+  "repository": { "name": "repo", "full_name": "org/repo" }
