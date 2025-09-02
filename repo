@@ -1,0 +1,9 @@
+//Step 3: Test the Integration
+Now, you can test the entire workflow.
+
+In your GitHub repository, create a new branch.
+
+Make a small code change and push the branch.
+
+Create a new pull request from this branch to your main branch.//
+
